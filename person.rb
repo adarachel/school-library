@@ -1,12 +1,24 @@
-class Person
-  attr_accessor :name, :age
-  attr_reader :id
+require_relative 'nameable'
+
+class Person < Nameable
+  attr_accessor :name
 
   def initialize(name = 'Unknown', age = nil, parent_permission: true)
-    @id = generate_id
     @name = name
     @age = age
     @parent_permission = parent_permission
+  end
+
+  def correct_name
+    name
+  end
+
+  def age
+    @age ||= 0
+  end
+
+  def parent_permission
+    @parent_permission ||= true
   end
 
   def can_use_services?
@@ -16,10 +28,6 @@ class Person
   private
 
   def of_age?
-    @age >= 18
-  end
-
-  def generate_id
-    rand(1000..9999)
+    age >= 18
   end
 end
