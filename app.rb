@@ -53,7 +53,7 @@ class App
   end
 
   def create_person
-    print 'Do you want to create a new student (1) or teacher (2)? [Input the number]: '
+    print 'Do you want to create a new student (1) or teacher (2)? [Inout the number]: '
     selected_person_type = Integer(gets.chomp)
     case selected_person_type
     when 1
